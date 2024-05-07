@@ -990,7 +990,8 @@ export interface ApiSocialSocial extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    content: Attribute.Blocks;
+    title: Attribute.String;
+    slug: Attribute.UID<'api::social.social', 'title'>;
     media: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
