@@ -993,6 +993,7 @@ export interface ApiSocialSocial extends Schema.CollectionType {
     title: Attribute.String;
     slug: Attribute.UID<'api::social.social', 'title'>;
     media: Attribute.Media;
+    content: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
