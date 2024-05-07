@@ -62,6 +62,17 @@ export interface SharedSlider extends Schema.Component {
   };
 }
 
+export interface SharedVideoEmbed extends Schema.Component {
+  collectionName: 'components_shared_video_embeds';
+  info: {
+    displayName: 'Video Embed';
+    icon: 'play';
+  };
+  attributes: {
+    media: Attribute.JSON & Attribute.CustomField<'plugin::video-field.video'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -70,6 +81,7 @@ declare module '@strapi/types' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.video-embed': SharedVideoEmbed;
     }
   }
 }

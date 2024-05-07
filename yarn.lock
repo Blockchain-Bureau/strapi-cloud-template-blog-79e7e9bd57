@@ -1752,6 +1752,11 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
+"@sklinet/strapi-plugin-video-field@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@sklinet/strapi-plugin-video-field/-/strapi-plugin-video-field-1.0.6.tgz#28926381ab4b874df9ab59eb1ed9b01332b86235"
+  integrity sha512-ltLvdXTIlknk4dzoQYgFeUNeLbXjkOTJpgh2p2XPKhs/cLmo5eO2Sls6h0hwAH35Vhyv5KyH3NuZcxZ91bF7og==
+
 "@strapi/admin@4.21.1":
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/@strapi/admin/-/admin-4.21.1.tgz#deb702130647a1a196bbd90498ef0d13f1897eb5"

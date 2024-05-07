@@ -32,6 +32,10 @@
     },
     "content": {
       "type": "text"
+    },
+    "video_share": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }
