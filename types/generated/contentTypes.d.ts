@@ -859,6 +859,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         'shared.video-embed'
       ]
     >;
+    posted_on: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

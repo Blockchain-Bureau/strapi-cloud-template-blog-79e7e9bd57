@@ -54,6 +54,9 @@
         "shared.slider",
         "shared.video-embed"
       ]
+    },
+    "posted_on": {
+      "type": "date"
     }
   }
 }
