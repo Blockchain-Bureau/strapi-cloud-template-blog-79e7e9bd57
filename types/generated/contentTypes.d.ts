@@ -898,6 +898,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
       'oneToMany',
       'api::article.article'
     >;
+    dashboards: Attribute.Relation<
+      'api::author.author',
+      'oneToMany',
+      'api::dashboard.dashboard'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -935,6 +940,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::article.article'
     >;
     description: Attribute.Text;
+    dashboards: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::dashboard.dashboard'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -945,6 +955,57 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDashboardDashboard extends Schema.CollectionType {
+  collectionName: 'dashboards';
+  info: {
+    singularName: 'dashboard';
+    pluralName: 'dashboards';
+    displayName: 'Dashboard';
+    description: 'Create your dashboard content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    slug: Attribute.String;
+    dashboardIframeId: Attribute.String & Attribute.Required;
+    author: Attribute.Relation<
+      'api::dashboard.dashboard',
+      'manyToOne',
+      'api::author.author'
+    >;
+    category: Attribute.Relation<
+      'api::dashboard.dashboard',
+      'manyToOne',
+      'api::category.category'
+    >;
+    blocks: Attribute.DynamicZone<
+      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
+    >;
+    posted_on: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dashboard.dashboard',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dashboard.dashboard',
       'oneToOne',
       'admin::user'
     > &
@@ -1043,6 +1104,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::dashboard.dashboard': ApiDashboardDashboard;
       'api::global.global': ApiGlobalGlobal;
       'api::social.social': ApiSocialSocial;
     }

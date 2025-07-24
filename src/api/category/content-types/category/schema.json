@@ -26,6 +26,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "dashboards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dashboard.dashboard",
+      "mappedBy": "category"
     }
   }
 }
