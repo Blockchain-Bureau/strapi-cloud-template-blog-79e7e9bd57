@@ -981,6 +981,9 @@ export interface ApiDashboardDashboard extends Schema.CollectionType {
       }>;
     slug: Attribute.String;
     dashboardIframeId: Attribute.String & Attribute.Required;
+    comingSoon: Attribute.Boolean & Attribute.DefaultTo<false>;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    cover: Attribute.Media;
     author: Attribute.Relation<
       'api::dashboard.dashboard',
       'manyToOne',
